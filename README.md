@@ -2,6 +2,7 @@
 # Histogram Equalization Using OpenCV (Grayscale & Color Images)
 
 ## Aim
+
 To write a Python program using OpenCV to perform histogram equalization on both grayscale and color images to enhance image contrast and brightness.
 
 The program performs the following operations:
@@ -14,16 +15,22 @@ The program performs the following operations:
 - Convert image to HSV color space  
 - Apply histogram equalization on the Value (V) channel  
 - Convert the enhanced image back to BGR format  
-- Display original and enhanced images with histograms
-- 
+- Display original and enhanced images with histograms  
+
+---
+
 ## Software Used
+
 - Anaconda – Python 3.7  
 - Jupyter Notebook / VS Code  
 - OpenCV (`cv2`)  
 - NumPy  
-- Matplotlib
+- Matplotlib  
 
-## Algorithm:
+---
+
+## Algorithm
+
 ### Step 1:
 Import the required libraries: OpenCV, NumPy, and Matplotlib.
 
@@ -57,41 +64,65 @@ Merge the channels and convert the image back to BGR format.
 ### Step 11:
 Display original color image, histogram, enhanced image, and enhanced histogram using a 2 × 2 grid.
 
+---
+
 ## Program
 
 ### Developed By:
-**Name:** NANDIKA S
-### Register No: 212224230175 
+**Name:** Dinesh Karthik R 
 
-    import cv2
-    import numpy as np
-    import matplotlib.pyplot as plt
-    img = cv2.imread('parrot.jpg', cv2.IMREAD_GRAYSCALE)
-    plt.imshow(img, cmap='gray')
-    plt.title('Original Image')
-    plt.show()
-    plt.hist(img.ravel(),256,range = [0, 256]);
-    plt.title('Original Image')
-    plt.show()
-    img_eq = cv2.equalizeHist(img)
-    plt.hist(img_eq.ravel(), 256, range = [0, 256])
-    plt.title('Equalized Histogram')
-    plt.imshow(img_eq, cmap='gray')
-    plt.title('Original Image')
-    plt.show()
-    img = cv2.imread('parrot.jpg', cv2.IMREAD_COLOR)
-    img_hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
-    img_hsv[:,:,2] = cv2.equalizeHist(img_hsv[:, :, 2])
-    img_eq = cv2.cvtColor(img_hsv, cv2.COLOR_HSV2BGR)
-    plt.imshow(img_eq[:,:,::-1]); plt.title('Equalized Image');plt.show()
-    plt.hist(img_eq.ravel(),256,range = [0, 256]); plt.title('Histogram Equalized');plt.show()
-    plt.figure(figsize = (20,10))
-    plt.subplot(221); plt.imshow(img[:, :, ::-1]); plt.title('Original Color Image')
-    plt.subplot(222); plt.imshow(img_eq[:, :, ::-1]); plt.title('Equalized Image')
-    plt.show()
-    plt.figure(figsize = [15,4])
-    plt.subplot(121); plt.hist(img.ravel(),256,range = [0, 256]); plt.title('Original Image')
-    plt.subplot(122); plt.hist(img_eq.ravel(),256,range = [0, 256]); plt.title('Histogram Equalized')
+### Register No:
+212224230068
+```
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+img = cv2.imread('pa.jpeg',cv2.IMREAD_GRAYSCALE)
+plt.imshow(img, cmap='gray')
+plt.title('original_image')
+plt.show()
+
+# Read the image in grayscale format
+plt.hist(img.ravel(),256,range = [0, 256]);
+plt.title('Original Image')
+plt.show()
+
+# Perform histogram equalization
+img_eq = cv2.equalizeHist(img)
+
+# Display [1] the Original Image (Gray Image) and its Histogram, and [2] the Enhanced Image and its Histogram using a 2×2 layout in Matplotlib.
+
+plt.hist(img_eq.ravel(), 256, range = [0, 256]); 
+plt.title('Equalized Histogram')
+
+plt.imshow(img_eq, cmap='gray')
+plt.title('original image')
+plt.show()
+
+# Read the colorgiven parrot.jpg image.
+
+img = cv2.imread('pa.jepg', cv2.IMREAD_COLOR)
+
+img_hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+
+# Convert to HSV.
+img_hsv[:,:,2] = cv2.equalizeHist(img_hsv[:, :, 2])
+
+# Perform histogram equalization
+
+img_eq = cv2.cvtColor(img_hsv, cv2.COLOR_HSV2BGR)
+
+# Convert back to BGR format
+
+plt.subplot(121); plt.imshow(img[:, :, ::-1]); plt.title('Original Color Image')
+plt.subplot(122); plt.imshow(img_eq[:, :, ::-1]); plt.title('Equalized Image')
+
+plt.figure(figsize = [12,10])
+plt.subplot(221); plt.imshow(img[:, :, ::-1]); plt.title('Original Color Image')
+plt.subplot(222); plt.imshow(img_eq[:, :, ::-1]); plt.title('Equalized Image')
+plt.subplot(223); plt.hist(img.ravel(),256,range = [0, 256]); plt.title('Original Image')
+plt.subplot(224); plt.hist(img_eq.ravel(),256,range = [0, 256]); plt.title('Histogram Equalized')
+```
 
 ##  Output:
 
