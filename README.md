@@ -69,10 +69,10 @@ Display original color image, histogram, enhanced image, and enhanced histogram 
 ## Program
 
 ### Developed By:
-**Name:** Dinesh Karthik R 
+**Name:** NANDIKA S
 
 ### Register No:
-212224230068
+212224230175
 ```
 import cv2
 import numpy as np
